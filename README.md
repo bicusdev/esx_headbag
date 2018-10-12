@@ -2,7 +2,7 @@
 License
 esx_headbag - HEAD BAG SCRIPT FOR ESX
 
-Copyright (C) 2015-2018 Jakub Michalski - bicusdev
+Copyright (C) 2018 Jakub Michalski - bicusdev
 
 This program Is free software: you can redistribute it And/Or modify it under the terms Of the GNU General Public License As published by the Free Software Foundation, either version 3 Of the License, Or (at your option) any later version.
 
