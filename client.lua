@@ -37,6 +37,7 @@ AddEventHandler('esx_worek:nalozNa', function(gracz)
     local playerPed = GetPlayerPed(-1)
     Worek = CreateObject(GetHashKey("prop_money_bag_01"), 0, 0, 0, true, true, true) -- Create head bag object!
     AttachEntityToEntity(Worek, GetPlayerPed(-1), GetPedBoneIndex(GetPlayerPed(-1), 12844), 0.2, 0.04, 0, 0, 270.0, 60.0, true, true, false, true, 1, true) -- Attach object to head
+    SetNuiFocus(false,false)
     SendNUIMesxage({type = 'openGeneral'})
     HaveBagOnHead = true
 end)    
@@ -44,7 +45,7 @@ end)
 AddEventHandler('playerSpawned', function() --This event delete head bag when player is spawn again
 DeleteEntity(Worek)
 SetEntityAsNoLongerNeeded(Worek)
-SendNUIMesxage({type = 'closeAll'})
+SendNUIMessage({type = 'closeAll'})
 HaveBagOnHead = false
 end)
 
@@ -53,7 +54,7 @@ AddEventHandler('esx_worek:zdejmijc', function(gracz)
     ESX.ShowNotification('~g~Someone removed the bag from your head!')
     DeleteEntity(Worek)
     SetEntityAsNoLongerNeeded(Worek)
-    SendNUIMesxage({type = 'closeAll'})
+    SendNUIMessage({type = 'closeAll'})
     HaveBagOnHead = false
 end)
 
