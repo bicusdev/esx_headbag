@@ -14,14 +14,14 @@ local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
 local player = GetPlayerPed(-1)
 
 if closestPlayer == -1 or closestDistance > 2.0 then 
-    ESX.ShowNotification('~r~There is no player nearby')
+    ESX.ShowNotification('~r~Nenhum jogador perto')
 else
   if not HaveBagOnHead then
     TriggerServerEvent('esx_worek:sendclosest', GetPlayerServerId(closestPlayer))
-    ESX.ShowNotification('~g~You put the head bag on ~w~' .. GetPlayerName(closestPlayer))
+    ESX.ShowNotification('~g~Você colocou a sacola em ~w~' .. GetPlayerName(closestPlayer))
     TriggerServerEvent('esx_worek:closest')
   else
-    ESX.ShowNotification('~r~This player already have a bag on head')
+    ESX.ShowNotification('~r~O jogador já tem uma sacola na cabeça')
   end
 end
 
@@ -61,8 +61,8 @@ end)
 function OpenBagMenu() --This function is menu function
 
     local elements = {
-          {label = 'Put bag on head', value = 'puton'},
-          {label = 'Remove bag from head', value = 'putoff'},
+          {label = 'Colocar saco na cabeça', value = 'puton'},
+          {label = 'Retirar saco da cabeça', value = 'putoff'},
           
         }
   
@@ -71,7 +71,7 @@ function OpenBagMenu() --This function is menu function
     ESX.UI.Menu.Open(
       'default', GetCurrentResourceName(), 'headbagging',
       {
-        title    = 'HEAD BAG MENU',
+        title    = 'VENDAR',
         align    = 'top-left',
         elements = elements
         },
@@ -91,7 +91,7 @@ function OpenBagMenu() --This function is menu function
                   TriggerServerEvent('esx_worek:zdejmij')
                 end
               else
-                ESX.ShowNotification('~r~There is no player nearby.')
+                ESX.ShowNotification('~r~Nenhum jogador perto.')
               end
             end,
       function(data2, menu2)
